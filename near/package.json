@@ -1,0 +1,12 @@
+{
+  "name": "near",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "js-sha256": "^0.9.0",
+    "near-api-js": "^0.36.3",
+    "near-sdk-as": "^2.2.3"
+  }
+}
