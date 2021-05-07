@@ -1,0 +1,114 @@
+$ node create_account.js                               [~/Documents/avalanche]
+Generating a new keypair...
+Saving keypair to ./credentials/keypair.json
+Loading credentials into keychain...
+Imported X-chain address: X-fuji15u863vnfd0k40jjryls2qa054h2w9eu0d4ap8w
+Fetching address balances...
+Address does not have any associated balances yet.
+==============================================================
+Visit https://faucet.avax-test.network/ to pre-fund your address.
+==============================================================
+
+$ node query.js                                        [~/Documents/avalanche]
+========== Info ==========
+- X: 2JVSBoinj9C2J33VntvzYtVJNZdN2NKiwwKjcumHUWEb5DbBrm true
+- P: 11111111111111111111111111111111LpoYY true
+- C: yH8D7ThNJkxmtkuv2jgBa4P1Rn3Qpr4pPr7QYNfcdoS6k6HWp true
+- Fees: {
+  txFee: BN { negative: 0, words: [ 1000000 ], length: 1, red: null },
+  creationTxFee: BN { negative: 0, words: [ 10000000 ], length: 1, red: null }
+}
+========== Platform Chain Info ==========
+Fetching validator subnets...
+Found subnets: 57
+Subnet example: {
+  id: '6HQyf6myizJQxCFEhaNeifE2zYvr5ACBREap6UEMvK3UvHg1q',
+  controlKeys: [
+    'P-fuji1ckxd6gqade7sfnsq86t9nmcscuc7sm7wngzglm',
+    'P-fuji16auv5dqle3gh8x35zv8gt6ffy64yf3awcxcrv6'
+  ],
+  threshold: '2'
+}
+Fetching validators...
+Found validators: 92
+Example validator: {
+  txID: 'ekcg1TTKnJ1fWznEkQNqwC3W6t1CUh1pKNJZ4agNgERb5AFGs',
+  startTime: '1613901873',
+  endTime: '1616321583',
+  stakeAmount: '1000000000',
+  nodeID: 'NodeID-HLBcVFQBYJArpBQaGXHS8m3bGVbU2BKAB',
+  rewardOwner: {
+    locktime: '0',
+    threshold: '1',
+    addresses: [ 'P-fuji14fc8vvrdhmeslkckuwf065g448x9m4jn7kkwrz' ]
+  },
+  potentialReward: '7591830',
+  delegationFee: '2.0000',
+  uptime: '0.0193',
+  connected: false,
+  delegators: null
+}
+Validator owner balance: 2000000000
+Current height: 29233
+Current min stake: 1000000000
+Current supply: 364651788568184468
+========== Exchange Chain Info ==========
+Default Fee: 1000000
+Transaction status: Accepted
+Balances: [ { asset: 'AVAX', balance: '908000000' } ]
+$ export DATAHUB_API_URL=https://avalanche--fuji--rpc.datahub.figment.io/apikey/28a9bbbe53afccab0771195a351894b7
+$ curl -X POST --data '{                               [~/Documents/avalanche]
+  "jsonrpc":"2.0",
+  "id"     :1,
+  "method" :"avm.getTxStatus",
+  "params" :{
+    "txID":"2AjbGiRg1KG7FtuJqVEtCzi48n8jpwWdLLYwnBxfFCwMozMLMg"
+  }
+}' -H 'content-type:application/json;' $DATAHUB_API_URL/ext/bc/X
+{"jsonrpc":"2.0","result":{"status":"Accepted"},"id":1}
+$ touch transfer.js                                    [~/Documents/avalanche]
+$ node transfer.js                                     [~/Documents/avalanche]
+Balance before sending tx: {
+  balance: '1000000000',
+  utxoIDs: [
+    {
+      txID: '27Gi3D32g61u38ruSzk33wLYe5GBxGvLDkNm5e4bEGUjN256Br',
+      outputIndex: 0
+    }
+  ]
+}
+Transaction submitted!
+----------------------------------------------------------------
+Visit https://explorer.avax-test.network/tx/2FdLhetj5GjwyBAk3fSTGQgZABybnRX7zdCJGByU2TjV8BJJZ7 to see transaction details
+----------------------------------------------------------------
+Current transaction status: Unknown
+Updated transaction status: Accepted
+Balance after sending tx: {
+  balance: '949000000',
+  utxoIDs: [
+    {
+      txID: '2FdLhetj5GjwyBAk3fSTGQgZABybnRX7zdCJGByU2TjV8BJJZ7',
+      outputIndex: 1
+    }
+  ]
+}
+
+
+$ node interchain_transfer.js                          [~/Documents/avalanche]
+Derived Eth address: 0xd22cf4521a92bc92a326381ff1e33882320212c9
+Current X-Chain balance: {
+  balance: '949000000',
+  utxoIDs: [
+    {
+      txID: '2FdLhetj5GjwyBAk3fSTGQgZABybnRX7zdCJGByU2TjV8BJJZ7',
+      outputIndex: 1
+    }
+  ]
+}
+X-Chain export TX: 2MqVDR3jxFjf1DoeE9LJgZvDP3eudgEGScfjHxdsCDsJJTZquM
+ - https://explorer.avax-test.network/tx/2MqVDR3jxFjf1DoeE9LJgZvDP3eudgEGScfjHxdsCDsJJTZquM
+C-Chain import TX: hUWhmaA8YLgyAozWWYTRnejTt1MCWmDFPJ65sQwUbLQNyJCg3
+ - https://explorer.avax-test.network/tx/hUWhmaA8YLgyAozWWYTRnejTt1MCWmDFPJ65sQwUbLQNyJCg3
+----------------------------------------------------------------
+Visit https://cchain.explorer.avax-test.network/address/0xd22cf4521a92bc92a326381ff1e33882320212c9 for balance details
+----------------------------------------------------------------

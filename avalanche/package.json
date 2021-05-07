@@ -1,0 +1,11 @@
+{
+  "name": "avalanche",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "avalanche": "^3.2.2",
+    "dotenv": "^8.2.0",
+    "ethereumjs-util": "^7.0.9"
+  }
+}
