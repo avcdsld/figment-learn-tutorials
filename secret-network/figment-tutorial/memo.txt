@@ -1,0 +1,59 @@
+$ node create_account.js
+mnemonic:  ***************************************
+address:  secret1evykg68qq20ygyu5xvfr5p53z78j8fkm6mesyq
+account:  {
+  address: 'secret1evykg68qq20ygyu5xvfr5p53z78j8fkm6mesyq',
+  balance: [ { denom: 'uscrt', amount: '100000000' } ],
+  pubkey: undefined,
+  accountNumber: 1229,
+  sequence: 0
+}
+
+$ node transfer.js                                       [~/Documents/secret-network/figment-tutorial]
+Transaction:  [
+  {
+    height: 1038108,
+    hash: '46EE7286CF9896FFE6BCE1CECDEC136BB5BBF4F7BB46A3B3C1B2A3962B312D5B',
+    code: 0,
+    rawLog: '[{"msg_index":0,"log":"","events":[{"type":"message","attributes":[{"key":"action","value":"send"},{"key":"sender","value":"secret1evykg68qq20ygyu5xvfr5p53z78j8fkm6mesyq"},{"key":"module","value":"bank"}]},{"type":"transfer","attributes":[{"key":"recipient","value":"secret1evykg68qq20ygyu5xvfr5p53z78j8fkm6mesyq"},{"key":"amount","value":"1000000uscrt"}]}]}]',
+    logs: [ [Object] ],
+    tx: { type: 'cosmos-sdk/StdTx', value: [Object] },
+    timestamp: '2021-01-16T17:28:51Z'
+  }
+]
+
+// https://explorer.secrettestnet.io/transactions/46EE7286CF9896FFE6BCE1CECDEC136BB5BBF4F7BB46A3B3C1B2A3962B312D5B
+
+
+$ node deploy.js
+Wallet address:  secret1evykg68qq20ygyu5xvfr5p53z78j8fkm6mesyq
+uploadReceipt:  {
+  originalSize: 111674,
+  originalChecksum: '28344b028732f22fcb7f1822b6fd9459291069ef010762d73e902aead1ed5087',
+  compressedSize: 42017,
+  compressedChecksum: 'ee152dfb033452ff3abc0b88b36ff24f92dbc9cf5076b01f2c2b6308d548199f',
+  codeId: 539,
+  logs: [ { msg_index: 0, log: '', events: [Array] } ],
+  transactionHash: 'DEABF9E1A8A1F8577CA2BD0CB67C2B167347D151033D3BACD6E68AB0075AC6BD'
+}
+uploadReceipt.codeId:  539
+
+contract: {
+  contractAddress: 'secret1sg26nwym48493ukl23wu7nr4c946d4k09fl8hu',
+  logs: [ { msg_index: 0, log: '', events: [Array] } ],
+  transactionHash: 'ACD6103C56047DD228E433C0796057A5664450E89D2CCD1CC222D7FFB42C1BE4',
+  data: '8215A9B89BA9EA58F2DF545DCF4C75C16BA6D6CF'
+}
+contract.contractAddress: secret1sg26nwym48493ukl23wu7nr4c946d4k09fl8hu
+
+Count:  101
+
+response:  {
+  logs: [ { msg_index: 0, log: '', events: [Array] } ],
+  transactionHash: 'D24A514A1267F49890A2290501131E45A5E640DBD11FFC95BC61D1E414E99444',
+  data: Uint8Array(0) []
+}
+Querying contract for updated count
+New Count:  102
+
+// https://explorer.secrettestnet.io/account/secret1evykg68qq20ygyu5xvfr5p53z78j8fkm6mesyq
