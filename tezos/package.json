@@ -1,0 +1,14 @@
+{
+  "name": "tezos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@taquito/rpc": "^9.0.1",
+    "@taquito/signer": "^9.0.1",
+    "@taquito/taquito": "^9.0.1",
+    "dotenv": "^10.0.0"
+  }
+}
