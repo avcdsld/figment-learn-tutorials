@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Alert, Button, Col, Space, Typography, Tag } from 'antd';
 import { ethers, providers } from 'ethers';
 import detectEthereumProvider from '@metamask/detect-provider';
-import { Network } from "@ethersproject/networks";
+import { Network } from '@ethersproject/networks';
 
 import { PolygonAccountT } from 'types/polygon-types';
 
@@ -33,7 +33,7 @@ const Connect = ({ account, setAccount }: { account: PolygonAccountT, setAccount
       setAccount(address)
       setNetwork(network)
     } else {
-      alert("Please install Metamask at https://metamask.io")
+      alert('Please install Metamask at https://metamask.io')
     }
   }
 
